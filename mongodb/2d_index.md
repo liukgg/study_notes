@@ -15,14 +15,13 @@ https://docs.mongodb.com/manual/reference/operator/query/centerSphere/
 小结
 ---------------------------------------------
 ### MongoDB查询地理位置默认有3种距离单位：
+- 米(meters)
+- 平面单位(flat units，可以理解为经纬度的“一度”)
+- 弧度(radians)
 
-米(meters)
-平面单位(flat units，可以理解为经纬度的“一度”)
-弧度(radians)
-
-2d索引能同时支持$center和$centerSphere，
-2dsphere索引支持$centerSphere。
-关于距离单位，$center默认是度，$centerSphere默认距离是弧度。
+- 2d索引能同时支持$center和$centerSphere，
+- 2dsphere索引支持$centerSphere。
+- 关于距离单位，$center默认是度，$centerSphere默认距离是弧度。
 
 ### 提示和示例
 km转为度，需要除以 111.12; km转为弧度，需要除以6371
@@ -42,4 +41,5 @@ items = Item.where(:loc => {"$within" => {"$center" => [location, (distance.fdiv
 Questions
 ---------------------------------------------
 1, 2d索引和2d-sphere 到底有什么区别？为什么要有2个不同的索引？
+
 2，mongoid支持within_polygon但是不支持within_center 或者 within_circle, 不知道为什么？
