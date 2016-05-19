@@ -110,3 +110,6 @@ https://docs.mongodb.com/v3.0/reference/operator/query/centerSphere/
 
 ### mongoid: geo_near
 mongoid源码： mongoid/lib/mongoid/contextual/mongo.rb#geo_near
+
+### 示例
+https://blog.glyphobet.net/blurb/2011
