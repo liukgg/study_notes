@@ -16,3 +16,8 @@ ftp http://ftp.cuhk.edu.hk/pub/packages/apache.org/spark/spark-1.6.1/spark-1.6.1
 tar -xf spark-1.6.1-bin-hadoop2.6.tgz
 cd spark-1.6.1-bin-hadoop2.6
 ```
+
+map, reduce, filter, lambda
+-------------------------------------------
+
+http://blog.sina.com.cn/s/blog_6dbaeb9b0101dzle.html
