@@ -11,7 +11,8 @@ Install
 
 ```shell
 # 简单起见，下载一个已经编译过的版本，否则要用maven自己编译，不建议初学者这样
-ftp http://ftp.cuhk.edu.hk/pub/packages/apache.org/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz
+# For Mac OS: ftp http://ftp.cuhk.edu.hk/pub/packages/apache.org/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz
+wget http://ftp.cuhk.edu.hk/pub/packages/apache.org/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz
 
 tar -xf spark-1.6.1-bin-hadoop2.6.tgz
 cd spark-1.6.1-bin-hadoop2.6
@@ -38,3 +39,8 @@ examples
   --class org.apache.spark.examples.SparkPi /Users/kun.liu/Documents/other_projects/spark-1.6.1-bin-hadoop2.6/lib/spark-examples-1.6.1-hadoop2.6.0.jar 10
 
 ```
+
+sbt--build scala
+---------------------------------------------
+
+https://github.com/CSUG/real_world_scala/blob/master/02_sbt.markdown
