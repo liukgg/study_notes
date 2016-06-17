@@ -21,3 +21,20 @@ map, reduce, filter, lambda
 -------------------------------------------
 
 http://blog.sina.com.cn/s/blog_6dbaeb9b0101dzle.html
+
+sortByKey
+-------------------------------------------
+sortByKey(true) # ascending
+sortByKey(true) # descending
+
+examples
+--------------------------------------------
+
+```shell
+# ./bin/run-example SparkPi 10
+
+/Users/kun.liu/Documents/other_projects/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+  --master local[*] \
+  --class org.apache.spark.examples.SparkPi /Users/kun.liu/Documents/other_projects/spark-1.6.1-bin-hadoop2.6/lib/spark-examples-1.6.1-hadoop2.6.0.jar 10
+
+```

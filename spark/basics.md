@@ -44,6 +44,8 @@ res21: Array[Int] = Array(1, 1, 1, 1, 1)
 ```
 
 ### 神奇的 _ 符号
+http://stackoverflow.com/questions/26886275/how-to-find-max-value-in-pair-rdd
+
 https://www.zhihu.com/question/32366168
 
 map(_._2) 等价于 map(t => t._2) //t是个2项以上的元组
