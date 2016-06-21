@@ -44,3 +44,15 @@ sbt--build scala
 ---------------------------------------------
 
 https://github.com/CSUG/real_world_scala/blob/master/02_sbt.markdown
+
+simple-start
+--------------------------------------------------
+
+```shell
+# Use spark-submit to run your application
+$ YOUR_SPARK_HOME/bin/spark-submit \
+  --class "SimpleApp" \
+    --master local[4] \
+      target/scala-2.10/simple-project_2.10-1.0.jar
+```
+
