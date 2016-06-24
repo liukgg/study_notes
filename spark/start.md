@@ -56,3 +56,7 @@ $ YOUR_SPARK_HOME/bin/spark-submit \
       target/scala-2.10/simple-project_2.10-1.0.jar
 ```
 
+设置环境变量
+--------------------------------------------
+
+http://www.powerxing.com/linux-environment-variable/
