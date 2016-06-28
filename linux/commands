@@ -1,0 +1,8 @@
+查看日志文件中包含Timeout的行，以及匹配行的前100行和后5行：
+
+tail -f -n 100000  shared/log/production.log|grep -A 5 -B 100 Timeout
+
+参考：
+http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
+以及
+grep --help
