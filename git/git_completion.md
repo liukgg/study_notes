@@ -4,7 +4,7 @@ Git命令自动补全
 如果你用的是 Bash shell，可以使用 Git 提供的自动补全脚本。
 下载 Git 的源代码，进入 contrib/completion 目录，会看到一个 git-completion.bash 文件。
 将此文件复制到你自己的用户主目录中并且改名加上点：
-（或者也可以直接复制该文件内容： ）
+（或者也可以直接复制该文件内容： https://github.com/liukgg/study_notes/blob/master/git/git-completion.bash）
 
 ```shell
 cp git-completion.bash ~/.git-completion.bash，
