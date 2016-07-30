@@ -9,5 +9,7 @@ http://railsguides.net/find-method-source-location/
 ```ruby
 [].method(:+)
 
+[].method(:+).source_location
+
 Method.instance_methods(false)
 ```
