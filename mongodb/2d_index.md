@@ -23,6 +23,10 @@ https://docs.mongodb.com/manual/reference/operator/query/centerSphere/
 - 2dsphere索引支持$centerSphere。
 - 关于距离单位，$center默认是度，$centerSphere默认距离是弧度。
 
+- 关于$center的单位，mongodb官方文档有说明(https://docs.mongodb.com/manual/reference/operator/query/center/#op._S_center)：
+  "The circle’s radius, as measured in the units used by the coordinate system."
+  即$center传入半径参数时，单位是和经纬度系统相同的，即经纬度中的1度，所以1km转为1度要除以111.12
+
 ### 提示和示例
 km转为度，需要除以 111.12; km转为弧度，需要除以6371
 
