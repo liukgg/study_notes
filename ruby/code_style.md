@@ -1,7 +1,5 @@
 # ruby代码规范
 
-作者：罗昕
-
 ## The Ruby Style Guide
 
 > Hey jude, don't make it bad.
