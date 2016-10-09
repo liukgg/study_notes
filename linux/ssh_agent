@@ -1,0 +1,29 @@
+ssh-agent基本用法：
+
+在 ~/.bashrc 中加入以下内容：
+
+```shell
+#eval "$(ssh-agent -s)"
+##ssh-add ~/.ssh/id_rsa
+
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l | grep "The agent has no identities" && ssh-add
+```
+
+
+为了让用户登录（切换时）执行 ~/.bashrc 的内容，需要在 ~/.profile文件中加入以下内容：
+
+```shell
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+            . "$HOME/.bashrc"
+    fi
+fi
+```

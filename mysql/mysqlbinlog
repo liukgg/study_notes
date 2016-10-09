@@ -1,0 +1,20 @@
+show binary logs;
+
+show binlog events;
+
+staging:
+mysqlbinlog -usnsdb_rw -p -h xxx -P3306 --database=snsdb-staging --read-from-remote-server mysql-bin.000691 >row3.sql
+
+线上：
+mysql> show binary logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000112 |  10263792 |
+| mysql-bin.000113 |  46005187 |
+| mysql-bin.000114 |  60042137 |
+| mysql-bin.000115 |  52250854 |
++------------------+-----------+
+
+mysqlbinlog -usnsdb_rw -p -h xxx -P3306 --database=snsdb --read-from-remote-server --start-datetime="2016-09-02 21:37:00" --stop-datetime="2016-09-02 23:42:23" --base64-output=decode-rows -vv  mysql-bin.000115 >row4.sql
+

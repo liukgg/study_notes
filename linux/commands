@@ -6,3 +6,6 @@ tail -f -n 100000  shared/log/production.log|grep -A 5 -B 100 Timeout
 http://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines
 以及
 grep --help
+
+# 硬盘使用情况查询
+df -lh
