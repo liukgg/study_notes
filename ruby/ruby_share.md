@@ -26,6 +26,22 @@ false.class
 nil.class.superclass
 ```
 
+### 强类型、动态类型检查
+
+```ruby
+# 强类型是指在进行一个需要特定类型的操作前会检查对象的类型
+# 动态类型： 声明变量时不需要声明变量类型
+a = 1
+a.class
+b = [1, 2, 3]
+b.class
+
+x = "3"
+y = x + "ho!"
+z = x + 3
+```
+
+### 解释型语言(Ruby, Python) VS 编译型语言(C, C++)
 
 ### 注释
 ```ruby
@@ -403,18 +419,70 @@ irb
 Ruby元编程
 -------------------------------
 
+### 对象模型
+- Module.constants # 返回当前程序中所有顶层的常量
+- Module#constants # 返回当前范围内的所有常量
+- Module#nesting   # 返回当前代码所在路径
+
 ```ruby
-1，对象模型:继承关系；
-2，方法:    方法查找链，method_missing,define_method, send,alias, alias_method;
-3，代码块： 绑定的概念，binding,block,lamda,proc;
-4，类定义： Class.new,Eigenclass,included,instance_eval, class_eval;
-5，编写代码的代码：Kernel#eval;
-6，安全元编程；
-7，研读Rails源码；
-8，适当使用元编程技巧，编写自己的gem包；。
+module M
+  class C
+    module M2
+      Module.nesting
+    end
+  end
+end
 ```
-==考虑代码可读性，不要滥用元编程。==
-==学习元编程有利于读懂rails、rack等gem的源码，加深对ruby和rails的理解。==
+
+- 对象由一组实例变量和类的引用组成。（实例变量属于对象，而方法则属于对象所属的类）
+- 类就是一个对象（class类的一个实例）外加一组实例方法和一个对其超类的引用。
+- Class 类是 Module 类的子类，因此一个类也是一个模块。
+
+- 方法查找：Ruby首先在接受者的类中查找，然后再顺着祖先链向上查找，直到找到这个方法为止。
+- 祖先链： MyClass.ancestors
+
+### 方法
+- 动态派发
+
+```ruby
+class MyClass
+  def my_method(arg)
+    arg * 2
+  end
+end
+obj = MyClass.new
+obj.my_method(3)
+obj.send(:my_method, 3)
+```
+
+- 动态定义方法
+
+```ruby
+class MyClass
+  define_method :my_method do |arg|
+    arg * 3
+  end
+end
+obj = MyClass.new
+obj.my_method(2)
+
+class Person
+  [:name, :sex, :age, :weight].each do |attr|
+    define_method(attr) do
+      self.instance_variable_get("@#{attr}")
+    end
+
+    define_method("#{attr}=") do |value|
+      self.instance_variable_set("@#{attr}", value)
+    end
+  end
+end
+
+obj = Person.new
+obj.name = "Jordon"
+obj.name
+obj.age = 24
+```
 
 ### 参考资料
 - 《Programming Ruby》
