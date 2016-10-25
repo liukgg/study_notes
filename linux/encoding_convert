@@ -1,1 +1,3 @@
 http://blog.csdn.net/codemanship/article/details/40340419
+
+iconv -f UTF8 -t GB18030 源文件.csv >新文件.csv

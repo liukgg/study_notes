@@ -9,3 +9,6 @@ grep --help
 
 # 硬盘使用情况查询
 df -lh
+
+从跳板机scp文件到本地：
+scp -P 8888 username@192.168.1.1:/tmp/comments.csv ./
