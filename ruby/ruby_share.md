@@ -43,6 +43,13 @@ z = x + 3
 
 ### 解释型语言(Ruby, Python) VS 编译型语言(C, C++)
 
+```ruby
+# $ cat code.rb
+# puts "hello world"
+
+ruby code.rb
+```
+
 ### 注释
 ```ruby
 # hi
@@ -54,11 +61,19 @@ z = x + 3
 
 ### 变量
 ```ruby
-local: time or _time
-instance: @time
-class: @@time
-global $time
+# local
+time or _time
 
+# instance
+@time
+
+# class
+@@time
+
+# global
+$time
+
+# 类变量
 class A
   def self.hi
     @hi = 'hi' # 类方法中的实例变量，属于当前类，本质上是个类变量
@@ -69,17 +84,14 @@ end
 ### 常用类（数据类型）
 
 ```ruby
-# Numeric
+# Numeric(子类：Fixnum, Float, Bignum等)
 1
 1.1
+1.positive?
 
 # String
 'abc'
 
-name = "Jim"
-"hello #{name}"
-
-# 常用方法举例
 'abcd'.size
 'abcd'.length
 'abcd'.reverse
@@ -103,9 +115,16 @@ arr[0..2]
 { a: 1, b: 2 }
 { :a => 1, :b => 2 }
 { 'a' => 1, 'b' => 2 }
-```
 
-提倡优先用Symbol 而不是 String，因为Symbol在内存中只有1份，而string会有多份，用object_id可以看出。
+
+# 提倡优先用Symbol 而不是 String，因为Symbol在内存中只有1份，而string会有多份，用object_id可以看出。
+'abc'.object_id
+'abc'.object_id
+:abc.object_id
+:abc.object_id
+
+false.object_id
+```
 
 ### Ruby 小技巧
 
