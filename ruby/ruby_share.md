@@ -1,6 +1,13 @@
 Ruby基础知识分享(By kun.liu)
 ------------------------------
 
+### Hello World
+```ruby
+print "hello world!"
+puts  "hello world!"
+p     "hello world!" # 和puts有点区别
+```
+
 ### 一切皆对象
 
 ```ruby
@@ -19,12 +26,6 @@ false.class
 nil.class.superclass
 ```
 
-### Hello World
-```ruby
-print "hello world!"
-puts  "hello world!"
-p     "hello world!" # 和puts有点区别
-```
 
 ### 注释
 ```ruby
@@ -375,13 +376,11 @@ m.source_location #=> ["(irb)", 8]
 ```
 
 ```ruby
-require 'pry'
-
-lk-mac:study_notes kun.liu$ irb
-2.3.0 :001 > require 'require "pry";binding.pry'
- => true 
- 2.3.0 :002 > require "pry";binding.pry
- [1] require "pry";binding.pry(main)> show-method puts
+irb
+2.3.0 :001 > require "pry"
+ => true
+ 2.3.0 :002 > pry
+ [1] pry(main)> show-method puts
 
  From: io.c (C Method):
  Owner: Kernel
