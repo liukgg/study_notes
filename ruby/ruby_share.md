@@ -81,29 +81,43 @@ class A
 end
 ```
 
-### 常用类（数据类型）
+### 常用类（数据类型）及其常用方法举例
 
 ```ruby
 # Numeric(子类：Fixnum, Float, Bignum等)
-1
-1.1
-1.positive?
+1.odd?
+1.1.positive?
+1.upto(10).each{ |x| puts x }
+3.times { puts "hello" }
+
+# 运算
+"hello" + "world"
+"hello" * 3
 
 # String
-'abc'
+str = 'hello world'
+str.size
+str.length
+str.sub(/e/, 'H')
+str.capitalize
+str.downcase
+str.reverse
+str.reverse!
 
-'abcd'.size
-'abcd'.length
-'abcd'.reverse
-'abcd'.sub(/a/, 'H')
+'1,2,3'.split(',')
 
 # Symbol
 :abc
+:abc.to_s
+Symbol.all_symbols
 
 # Boolean
 false, true
 
 # Array
+[1, "abc", 3.1].include?("abc")
+
+# 访问数组元素
 arr = [1, 2, 3, 4, 5]
 arr[0]
 arr[5]
@@ -111,37 +125,53 @@ arr[-1]
 arr[0, 5]
 arr[0..2]
 
+# 运算
+arr1 = [1, 2, 3, 4]
+arr2 = [5, 2, 3, 9]
+arr1 & arr2
+arr1 | arr2
+arr1 - arr2
+arr1 + arr2
+(arr1 + arr2).uniq
+
+# 当作队列使用
+arr.push 123 # 入队
+arr.shift    # 出队
+
+# 当作栈使用
+arr.push(123) # 进栈
+arr.pop       # 出栈
+
+# 常用方法
+arr.join(',')
+arr.shuffle
+arr.map{ |x| x * 2 }
+arr.reverse
+
 # Hash
-{ a: 1, b: 2 }
+hash = { a: 1, b: 2 }
 { :a => 1, :b => 2 }
 { 'a' => 1, 'b' => 2 }
+hash.keys
+hash.values
+hash.each{ |key, value| puts "key: #{key}, value: #{value}" }
 
 
-# 提倡优先用Symbol 而不是 String，因为Symbol在内存中只有1份，而string会有多份，用object_id可以看出。
+# 提倡优先用Symbol 而不是 String，因为Symbol在内存中只有1份，而string会有多份
 'abc'.object_id
 'abc'.object_id
 :abc.object_id
 :abc.object_id
 
 false.object_id
-```
 
-### Ruby 小技巧
-
-```ruby
-"hello #{name}" # 单引号和双引号的区别
-
-# 交换2个变量的值
-# 并行赋值；不是线程安全的，多线程情况下慎用！《Working with ruby threads》
-a, b = b, a
-
-3.times { puts "hello" }
-
-"hello" + "world"
-
-"hello" * 3
-
-undefined_variable rescue puts "catch it!"
+# 类型转换
+1.to_s
+"123".to_i
+"abc".to_sym
+:abc.to_s
+nil.to_s
+false.to_s
 ```
 
 ### 条件语句以及ruby特色
@@ -397,6 +427,18 @@ end
 Foo::Bar.new.say
 ```
 
+### Ruby 小技巧
+
+```ruby
+"hello #{name}" # 单引号和双引号的区别
+
+# 交换2个变量的值
+# 并行赋值；不是线程安全的，多线程情况下慎用！《Working with ruby threads》
+a, b = b, a
+
+undefined_variable rescue puts "catch it!"
+```
+
 ### 查看方法定义
 
 ```ruby
@@ -435,9 +477,6 @@ irb
 本质上 'Pry' 用的是 source_location:
 但是ruby原始的source_location 不支持 c 语言定义的ruby方法，而pry则可以。
 
-Ruby元编程
--------------------------------
-
 ### 对象模型
 - Module.constants # 返回当前程序中所有顶层的常量
 - Module#constants # 返回当前范围内的所有常量
@@ -460,7 +499,7 @@ end
 - 方法查找：Ruby首先在接受者的类中查找，然后再顺着祖先链向上查找，直到找到这个方法为止。
 - 祖先链： MyClass.ancestors
 
-### 方法
+### 动态方法
 - 动态派发
 
 ```ruby
