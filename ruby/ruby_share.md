@@ -19,10 +19,8 @@ class A
 end
 A.class
 
-nil.class
-
 false.class
-
+nil.class
 nil.class.superclass
 ```
 
@@ -83,18 +81,22 @@ end
 
 ### 常用类（数据类型）及其常用方法举例
 
+##### Numeric(子类：Fixnum, Float, Bignum等)
+
 ```ruby
-# Numeric(子类：Fixnum, Float, Bignum等)
 1.odd?
 1.1.positive?
 1.upto(10).each{ |x| puts x }
 3.times { puts "hello" }
+```
 
+##### String
+
+```ruby
 # 运算
 "hello" + "world"
 "hello" * 3
 
-# String
 str = 'hello world'
 str.size
 str.length
@@ -106,15 +108,26 @@ str.reverse!
 
 '1,2,3'.split(',')
 
-# Symbol
+```
+
+##### Symbol
+
+```ruby
 :abc
 :abc.to_s
 Symbol.all_symbols
 
-# Boolean
-false, true
+```
 
-# Array
+##### Boolean
+
+```ruby
+false, true
+```
+
+##### Array
+
+```ruby
 [1, "abc", 3.1].include?("abc")
 
 # 访问数组元素
@@ -147,8 +160,10 @@ arr.join(',')
 arr.shuffle
 arr.map{ |x| x * 2 }
 arr.reverse
+```
 
-# Hash
+##### Hash
+```ruby
 hash = { a: 1, b: 2 }
 { :a => 1, :b => 2 }
 { 'a' => 1, 'b' => 2 }
@@ -164,8 +179,11 @@ hash.each{ |key, value| puts "key: #{key}, value: #{value}" }
 :abc.object_id
 
 false.object_id
+```
 
-# 类型转换
+##### 类型转换
+
+```ruby
 1.to_s
 "123".to_i
 "abc".to_sym
