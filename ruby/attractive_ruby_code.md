@@ -26,6 +26,9 @@ hello world
 ```ruby
 # 大小写数字混合的密码
 (('A'..'Z').to_a + ('a'..'z').to_a + (0..9).to_a).sample(15).join
+
+# 带特殊字符
+((48..122).to_a).sample(15).map(&:chr).join
 ```
 
 ### 强大的赋值
