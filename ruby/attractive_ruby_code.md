@@ -118,6 +118,7 @@ rails -v
 rails new sample_app
 
 rails server
+# localhost:3000
 
 rails g controller static
 
