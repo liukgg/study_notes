@@ -1,0 +1,9 @@
+<%= form_for(@user) do |f| %>
+  name: <%= f.text_field :name  %>
+
+  <br/>
+
+  email: <%= f.text_field :email %>
+
+  <%= f.submit %>
+<% end  %>

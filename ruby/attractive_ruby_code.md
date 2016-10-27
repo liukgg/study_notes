@@ -99,5 +99,76 @@ double(2, 1, diff)  #=> Output:  2 * (2-1) = 2
 强大的Ruby On Rails
 -------------------------------------------
 
-### TODO
+### 准备工作
 
+```ruby
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
+brew install git sqlite
+rvm install 2.3.0
+rvm use 2.3.0 --global
+ruby -v
+gem install rails
+rails -v
+```
+
+### 轻松开始项目
+
+```shell
+rails new sample_app
+
+rails server
+
+rails g controller static
+
+rails g resource user name:string email:string
+```
+
+```ruby
+# routes
+root to: 'static#index'
+
+# controller
+class UsersController < ApplicationController
+  def new
+    @user = User.new
+  end
+
+  def create
+    User.create!(name: params[:user][:name], email: params[:user][:email])
+  end
+
+  def index
+    @users = User.all
+  end
+
+end
+
+# view
+
+# new
+<%= form_for(@user) do |f| %>
+  name: <%= f.text_field :name  %>
+
+  <br/>
+
+  email: <%= f.text_field :email %>
+
+  <%= f.submit %>
+<% end  %>
+
+# create
+Success!
+
+<br/>
+
+params: <%= params.inspect %>
+
+# index
+name, email<br/>
+
+<% @users.each do |user| %>
+  <%= user.name  %>, <%= user.email %><br/>
+<% end  %>
+
+```
