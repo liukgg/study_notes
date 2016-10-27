@@ -123,6 +123,11 @@ rails server
 rails g controller static
 
 rails g resource user name:string email:string
+rails g resource blog user_id:integer content:text
+
+rake db:migrate
+
+rails console
 ```
 
 ```ruby
@@ -172,4 +177,8 @@ name, email<br/>
   <%= user.name  %>, <%= user.email %><br/>
 <% end  %>
 
+# blogs
 ```
+
+### example
+https://github.com/liukgg/study_notes/tree/master/rails/examples/sample_app
