@@ -1,0 +1,5 @@
+user_name, content<br/>
+
+<% @blogs.each do |blog| %>
+  <%= blog.user.name  %>, <%= blog.content %><br/>
+<% end  %>

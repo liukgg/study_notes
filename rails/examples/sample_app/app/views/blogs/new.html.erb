@@ -1,0 +1,9 @@
+<%= form_for(@blog) do |f| %>
+  user_id: <%= f.text_field :user_id %>
+
+  <br/>
+
+  content: <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end  %>
