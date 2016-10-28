@@ -122,63 +122,10 @@ rails server
 
 rails g controller static
 
-rails g resource user name:string email:string
-rails g resource blog user_id:integer content:text
+rails g scaffold user name:string email:string
+rails g scaffold blog user:references content:text
 
 rake db:migrate
 
 rails console
 ```
-
-```ruby
-# routes
-root to: 'static#index'
-
-# controller
-class UsersController < ApplicationController
-  def new
-    @user = User.new
-  end
-
-  def create
-    User.create!(name: params[:user][:name], email: params[:user][:email])
-  end
-
-  def index
-    @users = User.all
-  end
-
-end
-
-# view
-
-# new
-<%= form_for(@user) do |f| %>
-  name: <%= f.text_field :name  %>
-
-  <br/>
-
-  email: <%= f.text_field :email %>
-
-  <%= f.submit %>
-<% end  %>
-
-# create
-Success!
-
-<br/>
-
-params: <%= params.inspect %>
-
-# index
-name, email<br/>
-
-<% @users.each do |user| %>
-  <%= user.name  %>, <%= user.email %><br/>
-<% end  %>
-
-# blogs
-```
-
-### example
-https://github.com/liukgg/study_notes/tree/master/rails/examples/sample_app
