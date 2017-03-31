@@ -355,5 +355,3 @@ set tags+=./tags,./TAGS,tags;TAGS;$HOME
 "set autochdir
 "colorscheme railscasts
 
-" 解决代码粘贴到vim中格式错乱的问题，参考：https://linux.cn/tech/
-set clipboard=unnamedplus
