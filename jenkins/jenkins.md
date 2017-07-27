@@ -272,14 +272,10 @@ SimpleCov.minimum_coverage 80
 
 ```
 
-jenkins版本查看
-
------------------------------------------
+### jenkins版本查看
 
 java -jar /usr/lib/jenkins/jenkins.war --version
 
-jenkins升级
-
---------------------------------------------------
+### jenkins升级
 
 wget http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war
