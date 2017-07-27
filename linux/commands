@@ -12,3 +12,7 @@ df -lh
 
 从跳板机scp文件到本地：
 scp -P 8888 username@192.168.1.1:/tmp/comments.csv ./
+
+history打印时间：
+HISTTIMEFORMAT="%d/%m/%y %T "
+history

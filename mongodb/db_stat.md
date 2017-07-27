@@ -33,9 +33,14 @@ switched to db sns_backend_development
 Mongoid.default_client.database.command :dbStats => 1
 
 #查看某个表
-Mongoid.default_client.command(collstats: 'user_relations')
+Mongoid.default_client.command(collstats: 'raw_rong_cloud_messages')
+Mongoid.client('backup_1').command(collstats: 'raw_rong_cloud_messages')
+Mongoid.client('default').command(collstats: 'raw_rong_cloud_messages')
 
 https://docs.mongodb.com/manual/reference/command/dbStats/
+
+# 查找当前的primary节点
+Mongoid.client('default').command(ismaster: 1)
 ```
 
 参考：
