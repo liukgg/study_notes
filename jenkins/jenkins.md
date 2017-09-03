@@ -192,9 +192,7 @@ sudo apt-get install -y libgmp-dev
 
 sudo apt-get install -y imagemagick
 
-echo '192.168.6.28 gitlab.aasky.net' | sudo tee -a /etc/hosts
-
-ssh-keyscan -H gitlab.aasky.net >> ~/.ssh/known_hosts
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 # rvm 安装之后需要新开窗口才会加载rvm
 
