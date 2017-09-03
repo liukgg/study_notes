@@ -137,8 +137,7 @@ echo "----> Run Rspec..."
 bundle exec rspec spec/ --color --tty
 
 echo "----> deploy..."
-##  执行部署步骤（需要和运维确认，允许jenkins机器ssh到你的项目服务器）
-bundle exec mina staging-hz-web01 deploy
+bundle exec mina xxx deploy
 ```
 
 jenkins FAQ
@@ -254,7 +253,7 @@ git checkout develop
 
 git pull
 
-bundle exec mina staging-hz-web01 deploy
+bundle exec mina xxx deploy
 
 ```
 
