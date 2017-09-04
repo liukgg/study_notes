@@ -79,9 +79,131 @@ String -> Object -> Kernel -> BasicObject
 
 ### Include
 'include' 是引入模块代码的最常用也是最简单的方式。
-当在一个类定义中调用它的时候，Ruby将会把该模块插入到该类的祖先链中，就在它的超类之前（译者注：这里原文英国有误）。
+当在一个类定义中调用它的时候，Ruby将会把该模块插入到该类的祖先链中，就在它的超类之前（译者注：这里原文应该有误，原文写得是超类之后）。
+回到我们的第一个例子：
+
+```ruby
+module Logging
+  def log(level, message)
+    File.open("log.txt", "a") do |f|
+      f.write "#{level}: #{message}"
+    end
+  end
+end
+
+class Service
+  include Logging
+  
+  def do_something
+    begin
+      # do something
+    rescue StandardError => e
+      log :error, e.message
+    end
+  end
+end
+```
+
+如果我们查看Service类的祖先链，那么我们可以看到，Logging模块就存在于这个类本身和它的直接超类也就是Object类之间。
+
+```ruby
+> Service.ancestors
+=> [Service, Logging, Object, ...]
+```
+
+那就是为什么我们可以在这个类的实例上调用在模块中定义的方法。
+Ruby，在类中没有找到这些方法时，会在祖先链上往上走一步在模块上来寻找他们。
+
+```ruby
+Service                 Logging           Object
+------------  ---->     -------   ---->   ------
+do_something            log()
+```
+
+同时，值得注意的是，当包含两个或者更多模块时，最后被包含的那个模块总是会被再次插入到这个类和祖先链的其他部分之间：
+
+```ruby
+module Logging
+  def log(message)
+    # log in a file
+  end
+end
+
+module Debug
+  def log(message)
+    # debug output
+  end
+end
+
+class Service
+  include Logging
+  include Debug
+end
+
+p Service.ancestors # [Service, Debug, Logging, Object, ...]
+```
+
+所以，如果像这个例子中一样发生了某个方法冲突，那么在祖先链中第一个响应的模块将会是最后被包含的模块，也就是Debug模块。
 
 ### Extend
+在另一端，在类中使用extend实际上会将模块方法引入为类方法。如果我们在示例中使用extend而不是include，
+那么Logging模块将不会被插入到Service类的祖先链中。所以，我们无法在任何Service的实例上调用log方法。
+
+相反地，Ruby将会在Service类的单例类（singleton class）的祖先链中插入模块。
+这个单例类（叫做：#Service，译者注：可以通过 Service.singleton_class访问到）才是实际上Service的类方法被定义的地方。
+模块Logging的方法可以作为Service的类方法而被调用。
+
+|------------|       |------|
+|Service     |       |Object|
+-------------| ----> |------|
+|do_something|       |      |
+|------------|       |------|
+      |
+      v
+|------------|       |-------|
+|#Service    |       |Logging|
+-------------| ----> |-------|
+|            |       |log()  |
+|------------|       |-------|
+
+然后，我们可以像这样调用方法：
+
+```ruby
+Service.log :info, "Something happened"
+```
+
+经常地，你会想要在一个类上使用模块来引入实例方法，但是同时也要定义类方法。
+正常情况下，你将不得不使用两个不同的模块，一个用include来引入实例方法，
+而另一个用extend来定义类方法。
+
+用单个模块达到这一点的通常惯例是利用Module的included钩子方法，以同时在运行时引入类方法：
+
+```ruby
+module Logging
+  module ClassMethods
+    def logging_enabled?
+      true
+    end
+  end
+  
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+  
+  def log(level, message)
+    # ...
+  end
+end
+```
+
+现在，当我们在Service类中包涵模块的时候，模块方法将被引入为类的实例方法。
+included方法也会被调用，它会将正在发生include的类作为参数。
+然后我们可以在这个类上调用extend来引入ClassMethods子模块的方法作为类方法。
+这样就达成了闭环。
+
+
+译者注：
+
 通过singleton_class可以访问到一个类的单例类，从而可以看到extend的模块到了单例类的祖先链中。
 
 ```ruby
@@ -96,6 +218,9 @@ A.singleton_class #=> #<Class:A>
 A.singleton_class.ancestoers
 #=> [#<Class:A>, M, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]
 ```
+
+### Prepend
+prepend 从Ruby 2开始提供，对于Ruby开发者来说它没有它的另外两个小伙伴那么出名。
 
 
 ### 附录
