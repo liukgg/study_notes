@@ -137,8 +137,7 @@ echo "----> Run Rspec..."
 bundle exec rspec spec/ --color --tty
 
 echo "----> deploy..."
-##  执行部署步骤（需要和运维确认，允许jenkins机器ssh到你的项目服务器）
-bundle exec mina staging-hz-web01 deploy
+bundle exec mina xxx deploy
 ```
 
 jenkins FAQ
@@ -192,9 +191,7 @@ sudo apt-get install -y libgmp-dev
 
 sudo apt-get install -y imagemagick
 
-echo '192.168.6.28 gitlab.aasky.net' | sudo tee -a /etc/hosts
-
-ssh-keyscan -H gitlab.aasky.net >> ~/.ssh/known_hosts
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 # rvm 安装之后需要新开窗口才会加载rvm
 
@@ -256,7 +253,7 @@ git checkout develop
 
 git pull
 
-bundle exec mina staging-hz-web01 deploy
+bundle exec mina xxx deploy
 
 ```
 
