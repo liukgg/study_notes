@@ -1,5 +1,5 @@
 Ruby模块： Include vs Prepend vs Extend
-------------------------------
+---------------------------------------
 
 ### 说明
 本文主要内容来自翻译，关于extend部分有所补充。
@@ -221,7 +221,56 @@ A.singleton_class.ancestoers
 
 ### Prepend
 prepend 从Ruby 2开始提供，对于Ruby开发者来说它没有它的另外两个小伙伴那么出名。
+它实际上和include的工作机制相似，不同点在于，include是在祖先链中将模块插入到类和它的超类之间，
+而prepend是会把模块插入到祖先链的底部，甚至还在类本身之前。
 
+这意味着当调用一个类实例上的方法时，Ruby在查看类本身之前会先查看模块方法。
+这个行为上的不同点让你可以用模块来装饰已有的类以及实现“around”逻辑：
+
+```ruby
+module ServiceDebugger
+  def run(args)
+    puts "Service run start: #{args.inspect}"
+    result = super
+    puts "Service run finished: #{result}" 
+  end
+end
+
+class Service
+  prepend ServiceDebugger
+  
+  # perform some real work
+  def run(args)
+    args.each do |arg|
+      sleep 1
+    end
+    {result: "ok"}
+  end
+end
+```
+
+使用prepend时，模块 ServiceDebugger 现在被插入到了祖先链的最底端。
+
+```ruby
+ServiceDebugger       Service       Object
+--------------- ----> ------- ----> ------
+run()                 run()
+```
+
+你自己可以通过调用 Service.ancestors 来再次确认这一点：
+
+```ruby
+> Service.ancestors
+=> [ServiceDebugger, Service, Object, ...]
+```
+
+在Service的实例上调用run方法首先会执行定义在ServiceDebugger中的方法。
+我们可以用super来调用在祖先链之上的直接祖先上的同名方法，也就是Service类本身。
+我们利用该行为的优势实现了用一种非常简单优雅的方式来装饰Service的实现。
+
+感谢你的阅读，祝你愉快地用Ruby编码！
 
 ### 附录
 另外有一篇关于Ruby中的singleton_class的说明，有空再研究和分享。
+
+https://www.devalot.com/articles/2008/09/ruby-singleton
