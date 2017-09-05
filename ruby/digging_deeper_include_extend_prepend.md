@@ -7,7 +7,7 @@ Ruby模块： Include vs Prepend vs Extend
 
 
 模块(Module)是Ruby最有趣的特性之一。你可以用模块来给你的类附加任何行为以及用组合而不是继承来组织你的代码。
-这里有个示例：
+例如：
 
 ```ruby
 module Logging
@@ -53,9 +53,9 @@ MyWorker.perform_async {something: "useful"}
 Ruby是如何在运行时解析需要执行的方法的。
 
 ### 祖先链（ancestors chain）
-当一个Ruby类被创建的时候，它包含着组常量名称，它们是这个类的祖先（ancestors）。
+当一个Ruby类被创建的时候，它包含着一组常量名称，它们是这个类的祖先（ancestors）。
 他们是这个类继承自的所有类以及这个类所包含的所有模块。
-比如，通过调用String类上的ancestors方法，我们得道它的祖先如下：
+比如，通过调用String类上的ancestors方法，我们得到它的祖先如下：
 
 ```ruby
 > String.ancestors
@@ -69,7 +69,7 @@ String -> Object -> Kernel -> BasicObject
 ```
 
 当我们调用String类（或任何其他类）的实例上的方法object_id时，Ruby会遍历类的祖先来寻找object_id方法，
-然后最重会在Object类中发现它被定义。
+然后最终会在Object类中发现它被定义。
 
 当调用一个没有在任何地方被定义的方法时，Ruby将在祖先链的任何类或模块中都找不到该方法，
 然后最终会调用BasicObject类的method_missing方法，该方法给了开发者最后的机会来执行后备代码。
@@ -78,8 +78,8 @@ String -> Object -> Kernel -> BasicObject
 
 
 ### Include
-'include' 是引入模块代码的最常用也是最简单的方式。
-当在一个类定义中调用它的时候，Ruby将会把该模块插入到该类的祖先链中，就在它的超类之前（译者注：这里原文应该有误，原文写得是超类之后）。
+`include` 是引入模块代码的最常用也是最简单的方式。
+当在一个类定义中调用它的时候，Ruby将会把该模块插入到该类的祖先链中，就在它的超类之前（译者注：这里原文应该有误，原文写的是超类之后，和后面描述prepend时有冲突，同时和ancestors返回的结果不一致）。
 回到我们的第一个例子：
 
 ```ruby
@@ -153,6 +153,8 @@ p Service.ancestors # [Service, Debug, Logging, Object, ...]
 这个单例类（叫做：#Service，译者注：可以通过 Service.singleton_class访问到）才是实际上Service的类方法被定义的地方。
 模块Logging的方法可以作为Service的类方法而被调用。
 
+```ruby
+
 |------------|       |------|
 |Service     |       |Object|
 -------------| ----> |------|
@@ -165,6 +167,8 @@ p Service.ancestors # [Service, Debug, Logging, Object, ...]
 -------------| ----> |-------|
 |            |       |log()  |
 |------------|       |-------|
+
+```
 
 然后，我们可以像这样调用方法：
 
@@ -196,7 +200,7 @@ module Logging
 end
 ```
 
-现在，当我们在Service类中包涵模块的时候，模块方法将被引入为类的实例方法。
+现在，当我们在Service类中包含模块的时候，模块方法将被引入为类的实例方法。
 included方法也会被调用，它会将正在发生include的类作为参数。
 然后我们可以在这个类上调用extend来引入ClassMethods子模块的方法作为类方法。
 这样就达成了闭环。
