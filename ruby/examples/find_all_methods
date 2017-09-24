@@ -1,0 +1,23 @@
+### 找出返回值等于给定值的所有方法
+
+例如：
+```ruby
+irb(main):040:0* [1,2,3,4].what? 4
+[1, 2, 3, 4]=> [:last, :pop, :length, :size, :count, :max]
+```
+
+```ruby
+class Object
+  def what?(value)
+    methods.select do |method|
+      begin
+        dup.send(method) == value
+      rescue
+        false
+      end
+    end
+  end
+end
+```
+
+参考：https://github.com/BMorearty/what_methods
