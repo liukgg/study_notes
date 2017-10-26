@@ -76,6 +76,30 @@ JRE运行程序时的三项主要功能：
 理解
 - 为何Java是平台无关的
 - 为何Java是安全的
+参考：
+http://www.cygnet-infotech.com/blog/key-features-that-make-java-more-secure-than-other-languages
+https://stackoverflow.com/questions/14209887/why-java-is-secure-compared-with-other-programming-languages
 
+### Java自动垃圾回收技术
+- 系统级线程跟踪存储空间的分配情况
+- 在JVM的空闲时，检查并释放那些可被释放的存储器空间
+- 程序员无须也无法精确控制和干预该回收过程
+
+### JDK
+JDK = JRE + Tools
+JRE = JVM + API
+
+JDK提供的工具：
+- java编译器 javac
+- java执行器 java
+- 文档生成器javadoc
+- 打包器 jar
+- java调试器 jdb
 
 # 面向对象程序设计
+### 对象,类（类时对象的抽象／模板，对象是类的实例）
+
+### 面向对象的三大特征
+封装性（模块化，信息隐蔽）
+继承性（抽象&分类，代码重用，可维护性）
+多态性
