@@ -67,4 +67,41 @@ SOLID
 ### JDK中的设计模式
 https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries
 
+#### 创建模式（Creational）
+- SingleTon
+ * 保证类只有1个实例；提供1个全局访问点
+ * 只允许一个实例。这比Static要好（？）
+ * java.lang.Runtime#getRuntime()
+ * java.awt.Toolkit#getDefaultToolkit()
+ * java.awt.Desktop#getDesktop()
+
+- Factory(静态工厂)
+ * 作用：1，代替构造函数创建对象；2，方法名比构造函数清晰。
+ * 简单来说，按照需求返回一个类型的实例。
+ * java.lang.Class#newInstance()
+ * java.lang.Class#forName()
+ * java.lang.reflect.Array#newInstance()
+ * java.lang.reflect.Constructor#newInstance()
+
+- Abstract factory
+ * 作用：创建一组有关联的对象实例
+ * java.sql.DriverManager#getConnection()
+ * java.sql.Connection#createStatement()
+
+#### 结构型（Structural）
+- Adapter
+ * 适配器作用：使不兼容的借口相容
+ * java.io.InputStreadmReader(InputStream)
+ * java.io.OutputStreamWriter(OutputStream)
+
+- Composite
+
+- Decorator
+
+#### 行为型
+- Observer
+ * 通知对象状态改变
+ * java.util.EventListener
+ * btn.addActionListener(...)
+
 # 反射
