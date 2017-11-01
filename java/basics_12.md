@@ -105,3 +105,21 @@ https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-j
  * btn.addActionListener(...)
 
 # 反射
+在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;
+对于任意一个对象,都能够调用它的任意一个方法和属性。
+
+java.lang.reflect.*
+
+
+# Annotation（注记，注解）
+## JDK内置
+- @Override
+- @Deprecated
+- @SuppressWarnings({"unchecked", "deprecation"})
+
+## 自定义注记
+- @interface来定义一个类型，表示它是一个注记
+
+## 用反射来读取注记
+- method.getAnnotation(注记.class)
+- method.getAnnotaions()
