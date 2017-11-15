@@ -1,6 +1,9 @@
 Kafka简介
 ------------------------------------------------
 
+参考资料：
+http://blog.csdn.net/suifeng3051/article/details/48053965
+
 
 Consumer Group
 消息状态，broker维护offset
