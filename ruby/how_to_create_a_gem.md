@@ -62,7 +62,7 @@ gem build example_gem.gemspec
 gem install example_gem-0.0.1.gem
 ```
 
-### 想要知道如何将你的gem发布道rubygems.org的话，你可以参考这里：
+### 想要知道如何将你的gem发布到rubygems.org的话，你可以参考这里：
  http://guides.rubygems.org/make-your-own-gem/
 
 ### 参考资料
