@@ -1,6 +1,7 @@
 Ruby学习路线建议
 --------------------------------------------
 1，基础知识学习
+
 Ruby基础：《Ruby基础知识》或者网上学习：http://www.runoob.com/ruby/ruby-tutorial.html
 
 Ruby On Rails基础：  http://guides.rubyonrails.org/ 和 《Rails敏捷开发之道》
@@ -11,11 +12,13 @@ Ruby On Rails基础：  http://guides.rubyonrails.org/ 和 《Rails敏捷开发�
 强力推荐Rails入门教程：https://ihower.tw/rails/
 
 2，跟随Rails指南做个小项目
+
 英文版： https://www.railstutorial.org/
 
 中文版： https://railstutorial-china.org/book/
 
 3，项目实践 & 深入学习
+
 《Ruby元编程》
 
 《working with ruby threads》
@@ -25,6 +28,7 @@ Ruby On Rails基础：  http://guides.rubyonrails.org/ 和 《Rails敏捷开发�
 《working with unix process》
 
 4，学习Rails源码和Ruby实现机制
+
 Rails源码： https://github.com/rails/rails
 
 Ruby实现：《Ruby原理剖析》
