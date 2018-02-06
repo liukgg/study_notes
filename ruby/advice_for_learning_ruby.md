@@ -1,4 +1,4 @@
-Ruby面试
+Ruby学习路线建议
 --------------------------------------------
 1，基础知识学习
 Ruby基础：《Ruby基础知识》或者网上学习：http://www.runoob.com/ruby/ruby-tutorial.html
