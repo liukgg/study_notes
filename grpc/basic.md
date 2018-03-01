@@ -15,11 +15,22 @@ https://stackoverflow.com/questions/43682366/how-is-grpc-different-from-rest
 http://pliutau.com/benchmark-grpc-protobuf-vs-http-json/
 
 grpc生态：
+https://github.com/grpc
 https://github.com/grpc-ecosystem/grpc-gateway
 https://github.com/grpc-ecosystem/go-grpc-middleware
 https://github.com/grpc-ecosystem/grpc-opentracing
+https://github.com/mwitkow/grpc-proxy
+https://github.com/bsm/grpclb
+https://github.com/wothing/wonaming
+实际使用前，应该进行详细调研和对比。
+
 生成文档：
 https://github.com/pseudomuto/protoc-gen-doc
+生成服务间关系图
+http://rejoiner.io
+
+go 微服务示例：
+https://ewanvalentine.io/microservices-in-golang-part-1/
 
 https://blog.gopheracademy.com/advent-2017/go-grpc-beyond-basics/
 
