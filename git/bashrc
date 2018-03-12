@@ -1,0 +1,19 @@
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+alias gbr='git branch'
+alias gco='git checkout'
+alias gst='git status'
+alias gbdel='git branch --delete'
+alias gpulld='git pull origin develop'
+alias gpushd='git push origin develop'
+alias gps='git push'
+alias gpl='git pull'
+
+# git 自动补全
+source ~/.git-completion.bash
+
+export GOPATH=/Users/kun.liu/Documents/go_projects/mygo
+
+export PATH="$PATH:$GOPATH/bin/protoc-gen-doc"
+export PATH="$PATH:$GOPATH/bin"
