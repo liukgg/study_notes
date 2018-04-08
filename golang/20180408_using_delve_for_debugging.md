@@ -30,6 +30,8 @@ download and install previous version
 Command Line Tools (macOS 10.13) for Xcode 9.1 - Dec 6, 2017
 ```
 
+该问题在github上有对应issue：https://github.com/derekparker/delve/issues/1015
+
 ### 用法
 - dlv debug
 - dlv test
