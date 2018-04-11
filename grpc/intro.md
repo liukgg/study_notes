@@ -42,9 +42,9 @@ $ ruby greeter_server.rb
 $ ruby greeter_client.rb
 ```
 
-![ruby server](./images/ruby_server)
+![ruby server](./images/ruby_server.png)
 
-![ruby client](./images/ruby_client)
+![ruby client](./images/ruby_client.png)
 
 
 ## Golang Server 和 Golang Client
@@ -58,9 +58,9 @@ $ go run greeter_server/main.go
 $ go run greeter_client/main.go
 ```
 
-![go server](./images/go_server)
+![go server](./images/go_server.png)
 
-![go client](./images/go_client)
+![go client](./images/go_client.png)
 
 
 
