@@ -27,6 +27,11 @@ C, C++, Ruby, Python, PHP, C#, Objective-C, Java, GO, NodeJS, Dart
 ![gRPC workflow](./images/workflow.png)
 
 # Demo
+## proto文件定义
+protobuf资料参考：https://github.com/google/protobuf
+
+![proto file](./images/proto.png)
+
 ## Ruby Server 和 Ruby Client
 ```bash
 # 下载gRPC源码
