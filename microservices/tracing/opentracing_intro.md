@@ -26,3 +26,7 @@ OpenTracing通过提供平台无关、厂商无关的API，使得开发人员能
 ![ot](https://wu-sheng.gitbooks.io/opentracing-io/content/images/OTOV_3.png)
 
 这种展现方式增加了执行时间的上下文，相关服务间的层次关系，进程或者任务的串行或并行调用关系。这样的视图有助于发现系统调用的关键路径。通过关注关键路径的执行过程，项目团队可以专注于优化路径中的关键位置，最大幅度的提升系统性能。例如：可以通过追踪一个资源定位的调用情况，明确底层的调用情况，发现哪些操作有阻塞的情况。
+
+# 参考资料
+http://opentracing.io/documentation/
+https://github.com/opentracing/opentracing.io/blob/master/_docs/README.MD
