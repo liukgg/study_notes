@@ -1,4 +1,4 @@
-# By kun.liu
+# By https://github.com/liukgg
 #  参考资料：
 #  http://nithinbekal.com/posts/ruby-decorators/
 #  http://ruby-doc.org/stdlib-2.3.1/libdoc/delegate/rdoc/SimpleDelegator.html
