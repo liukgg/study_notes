@@ -67,6 +67,6 @@ puts cn_wrapper.eat
 ```
 
 ###  参考资料：
-#  http://nithinbekal.com/posts/ruby-decorators/
-#  http://ruby-doc.org/stdlib-2.3.1/libdoc/delegate/rdoc/SimpleDelegator.html
-#  http://devblog.orgsync.com/2013/03/22/decorate-your-ruby-objects-like-a-boss/
+- http://nithinbekal.com/posts/ruby-decorators/
+- http://ruby-doc.org/stdlib-2.3.1/libdoc/delegate/rdoc/SimpleDelegator.html
+- http://devblog.orgsync.com/2013/03/22/decorate-your-ruby-objects-like-a-boss/
