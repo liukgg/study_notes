@@ -30,7 +30,7 @@ Kafka官网: https://kafka.apache.org/
 - Netflix
 - Square
 - Spotify
-- Many others: https://cwiki.apache.org/confluence/display/KAFKA/Powered+By
+- 更多: https://cwiki.apache.org/confluence/display/KAFKA/Powered+By
 
 # 历史
 - Kafka最初是由LinkedIn开发
@@ -44,6 +44,7 @@ Confluent 的产品叫作 Confluent Platform。这个产品的核心是 Kafka，
 - Confluent Open Source（Kafka增强版，Rest代理，语言支持，hadoop、AWS S3、JDBC等的连接的支持，Schema Registry）
 - Confluent Enterprise （Confluent Control Center 非开源产品，对整个产品进行管理的控制中心，最主要的功能对这个 Kafka 里面各个生产者和消费者的性能监控）
 - Confluent Cloud（Confluent Enterprise 的云端托管服务，它增加了一个叫作云端管理控制台的组件）
+
 
 Confluent 的基本做法和 Cloudera 很像，主要的产品开源，但是控制中心这样的东西不开源，只有买了企业版才能够享受到。而两者不同的地方主要在于，Confluent 同时提供了云端服务的版本。加上 Confluent 有基于 S3 的连接，这使得从亚马逊 AWS 读写数据都非常方便。
 
