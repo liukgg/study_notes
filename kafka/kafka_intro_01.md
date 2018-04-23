@@ -50,10 +50,10 @@ Confluent 的基本做法和 Cloudera 很像，主要的产品开源，但是控
 和 Cloudera 是 Hadoop 的集成商不同，Confluent 主要还是围绕着不同数据源之间数据的交换这个任务而生的服务。Kafka 在整个开源产品里面是一个非常特殊的存在，它没有什么竞争对手，又是各大企业的刚需，它在脱离了整个 Hadoop 生态圈以后依然非常有价值。
 
 # 参考资料
-https://kafka.apache.org/
-https://kafka.apache.org/intro
-http://www.10tiao.com/html/46/201711/2650998759/1.html
-https://cwiki.apache.org/confluence/display/KAFKA/Index
-http://www.infoq.com/cn/articles/kafka-analysis-part-1
-http://mp.weixin.qq.com/s/5WesHzHrtuMGkXKKqugc9Q
-
+- https://kafka.apache.org/
+- https://kafka.apache.org/intro
+- http://www.10tiao.com/html/46/201711/2650998759/1.html
+- https://cwiki.apache.org/confluence/display/KAFKA/Index
+- http://www.infoq.com/cn/articles/kafka-analysis-part-1
+- http://mp.weixin.qq.com/s/5WesHzHrtuMGkXKKqugc9Q
+- https://www.confluent.io/
