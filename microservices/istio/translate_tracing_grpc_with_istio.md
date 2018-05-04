@@ -14,3 +14,5 @@
 Tracing对于调试和理解你的应用的行为来说非常棒。理解所有跟踪（tracing）数据的关键是能够关联来自不同微服务的跨度（spans），这些数据和某个客户端请求相关。
 
 为了达成这一点，在你应用中的所有微服务应该传播tracing headers。如果你在使用一个服务网格比如Istio或者Aspen Mesh，ingress和sidecar 代理自动添加了合适的tracing headers并且将这些spans报告给Tracing收集后端服务比如Jeager或者Zipkin。留给应用要做的唯一的事情就是传播来自
+
+TO BE DONE!
