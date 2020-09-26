@@ -1,6 +1,6 @@
 Java的基本程序设计结构（1）——示例、注释、数据类型、变量
 -----------------
-> Java学习笔记
+> Java学习笔记系列-02
 
 >《Java核心技术卷I——基础知识》 第3章 Java的基本程序设计结构
 
@@ -12,7 +12,7 @@ Java的基本程序设计结构（1）——示例、注释、数据类型、变
 ```java
 public class FirstSample
 {
-    public static void main()
+    public static void main(String[] args)
     {
         System.out.println("We will not use 'Hello, World!'");
     }

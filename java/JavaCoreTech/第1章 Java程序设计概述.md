@@ -1,5 +1,7 @@
 Java关键特性
 -----------------
+> Java学习笔记系列-01
+
 >《Java核心技术卷I——基础知识》 第1章 Java程序设计概述
 
 > 《Core Java Volume I-Fundamentals(10th Edition) 》 Cay S.Horstmann
